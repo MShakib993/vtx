@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-<!-- Mirrored from dicor.websitelayout.net/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Feb 2025 06:55:11 GMT -->
 <head>
-
     <!-- Metas -->
     <meta charset="utf-8">
     <meta name="author" content="ChitrakootWeb" />    
@@ -24,13 +21,162 @@
 
     <!-- Plugins -->
     <link rel="stylesheet" href="css/plugins.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <!-- Core Style Css -->
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="mysheet.css">
+    
+    <!-- New styles for enhancements -->
+    <style>
+        /* Animation for cards */
+        .venture-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .venture-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        /* Counters */
+        .counter-box {
+            text-align: center;
+            padding: 30px 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .counter {
+            font-size: 48px;
+            font-weight: 700;
+            color: #ff4e7b;
+            margin: 0 0 10px;
+            line-height: 1;
+        }
+        
+        /* Testimonials */
+        .testimonial-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .testimonial-card:after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50px;
+            border-width: 15px 15px 0;
+            border-style: solid;
+            border-color: #fff transparent;
+        }
+        
+        /* Dark mode toggle */
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #333;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: #f5f5f5;
+        }
+        body.dark-mode .bg-white {
+            background-color: #1e1e1e !important;
+        }
+        body.dark-mode .text-dark-gray {
+            color: #f5f5f5 !important;
+        }
+        body.dark-mode .venture-card {
+            background-color: #2d2d2d;
+            color: #f5f5f5;
+        }
+        
+        /* Contact form enhancements */
+        .contact-form input,
+        .contact-form textarea {
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            width: 100%;
+        }
+        .contact-form button {
+            background: linear-gradient(45deg, #ff4e7b, #ff6b6b);
+            border: none;
+            padding: 15px 30px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .contact-form button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255,78,123,0.3);
+        }
+        
+        /* Loading animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .loader-content {
+            text-align: center;
+            color: white;
+        }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #ff4e7b;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 
 <body>
+    <!-- Loading animation -->
+    <div class="loader">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <h3>Loading VTX Experience...</h3>
+        </div>
+    </div>
+
+    <!-- Dark mode toggle -->
+    <div class="dark-mode-toggle" id="darkModeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
 
     <!-- Start Navbar -->
     <nav class="navbar navbar-expand-lg">
@@ -55,15 +201,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="Event.html">Events</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0);" data-scroll-nav="3">Portfolio</a>
-                    </li> -->
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0);" data-scroll-nav="4">Price</a>
-                    </li> -->
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0);" data-scroll-nav="5">Blog</a>
-                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);" data-scroll-nav="7">Ventures</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="javascript:void(0);" data-scroll-nav="6">Contact</a>
                     </li>
@@ -79,8 +219,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center caption">
-                    <h3 class="alt-font font-size28 sm-font-size18 no-margin">Hello How are you</h3>
-                    <h1 class="banner-headline clip">
+                    <h3 class="alt-font font-size28 sm-font-size18 no-margin animate__animated animate__fadeInDown">Hello How are you</h3>
+                    <h1 class="banner-headline clip animate__animated animate__fadeIn">
                             <span class="blc">The new era of</span>
                             <span class="banner-words-wrapper">
                               <b class="is-visible">Vibe</b>
@@ -88,8 +228,8 @@
                               <b>Experience</b>
                             </span>
                     </h1>
-                    <p class="margin-30px-bottom sm-margin-20px-bottom xs-display-none">Event Organiser</p>
-                    <a href="javascript:void(0);" class="btn">
+                    <p class="margin-30px-bottom sm-margin-20px-bottom xs-display-none animate__animated animate__fadeInUp">Event Organiser</p>
+                    <a href="javascript:void(0);" class="btn animate__animated animate__fadeInUp">
                         <span>VTX</span>
                     </a>
                 </div>
@@ -177,19 +317,19 @@
 
                         <div class="prog-item">
                             <p>EDM Nights & Band Performances</p>
-                            <div class="skills-progress"><span ></span></div>
+                            <div class="skills-progress"><span data-value="95"></span></div>
                         </div>
                         <div class="prog-item">
                             <p>Hackathons & Coding Quiz</p>
-                            <div class="skills-progress"><span ></span></div>
+                            <div class="skills-progress"><span data-value="85"></span></div>
                         </div>
                         <div class="prog-item">
                             <p>Trips & Trekking</p>
-                            <div class="skills-progress"><span ></span></div>
+                            <div class="skills-progress"><span data-value="75"></span></div>
                         </div>
                         <div class="prog-item">
                             <p>Wedding Party</p>
-                            <div class="skills-progress"><span></span></div>
+                            <div class="skills-progress"><span data-value="65"></span></div>
                         </div>
 
                     </div>
@@ -199,6 +339,39 @@
         </div>
     </section>
     <!-- End About Section-->
+
+    <!-- Start Stats Section -->
+    <!-- <section class="stats-section padding-100px-tb bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="counter-box wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="counter" data-count="150">0</div>
+                        <h6>Events Organized</h6>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="counter-box wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="counter" data-count="50">0</div>
+                        <h6>Colleges Partnered</h6>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="counter-box wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="counter" data-count="10000">0</div>
+                        <h6>Happy Attendees</h6>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="counter-box wow fadeInUp" data-wow-delay="0.8s">
+                        <div class="counter" data-count="25">0</div>
+                        <h6>Awards Won</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- End Stats Section -->
 
     <!-- Start Team Section -->
     <section class="team">
@@ -321,6 +494,58 @@
     </section>
     <!-- End Team Section -->
 
+    <!-- Start Testimonials Section -->
+    <section class="testimonials padding-100px-tb bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 col-sm-12 center-col margin-70px-bottom sm-margin-40px-bottom xs-margin-30px-bottom text-center last-paragraph-no-margin wow fadeInUp">
+                    <div class="alt-font text-pink-color margin-5px-bottom text-uppercase letter-spacing-1">Testimonials</div>
+                    <h5 class="margin-10px-bottom font-weight-300">What <span class="font-weight-500">People Say</span></h5>
+                    <div class="separator-line-horrizontal-medium-light2 bg-pink center-col"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-card wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="testimonial-content">
+                            <p>"VTX organized an amazing EDM night at our college. The energy was incredible and the production quality was top-notch. Can't wait for their next event!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="img/testimonials/1.jpg" alt="Client" class="rounded-circle">
+                            <h6>Rahul Sharma</h6>
+                            <span>Student President, LPU</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="testimonial-content">
+                            <p>"Working with VTX for our college fest was a breeze. They handled everything from sound to logistics professionally. The students loved it!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="img/testimonials/2.jpg" alt="Client" class="rounded-circle">
+                            <h6>Priya Patel</h6>
+                            <span>Faculty Coordinator, Delhi University</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="testimonial-content">
+                            <p>"The band performance organized by VTX was the highlight of our cultural week. Their team is creative, responsive and truly passionate about events."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="img/testimonials/3.jpg" alt="Client" class="rounded-circle">
+                            <h6>Arjun Mehta</h6>
+                            <span>Cultural Head, IIT Delhi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Testimonials Section -->
+
     <!-- Start Blog Section -->
     <section class="blog" data-scroll-index="5">
         <div class="container">
@@ -423,6 +648,93 @@
     </section>
     <!-- End Blog Section -->
 
+    <!-- Start Ventures Section -->
+    <section class="ventures padding-100px-tb bg-light-gray" data-scroll-index="7">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 col-sm-12 center-col margin-70px-bottom sm-margin-40px-bottom xs-margin-30px-bottom text-center last-paragraph-no-margin wow fadeInUp">
+                    <div class="alt-font text-pink-color margin-5px-bottom text-uppercase letter-spacing-1">Our Ecosystem</div>
+                    <h5 class="margin-10px-bottom font-weight-300">Our <span class="font-weight-500">Other Ventures</span></h5>
+                    <div class="separator-line-horrizontal-medium-light2 bg-pink center-col"></div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Venture 1 -->
+                <div class="col-lg-4 col-md-6 margin-30px-bottom wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="venture-card padding-30px-all bg-white border-radius-5">
+                        <div class="venture-icon margin-25px-bottom">
+                            <img src="img/HelpHub.png" alt="Venture 1" style="max-height: 80px;">
+                        </div>
+                        <h4 class="margin-15px-bottom alt-font">HelpHub</h4>
+                        <p class="margin-20px-bottom">HelpHub – One-stop platform for student support: academic help, second-hand goods, and budget PGs.</p>
+                        <a href="https://help-hub-nf2j.vercel.app/" target="_blank" class="text-pink-color font-weight-600">Learn More <i class="fas fa-arrow-right margin-5px-left"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Venture 2 -->
+                <div class="col-lg-4 col-md-6 margin-30px-bottom wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="venture-card padding-30px-all bg-white border-radius-5">
+                        <div class="venture-icon margin-25px-bottom">
+                            <img src="img/video_editing.webp" alt="Venture 2" style="max-height: 80px;">
+                        </div>
+                        <h4 class="margin-15px-bottom alt-font">ClipCult</h4>
+                        <p class="margin-20px-bottom">ClipCult delivers pro video editing, engaging reels, stunning graphics, and unique brand promos — all crafted to boost your brand’s impact..</p>
+                        <a href="https://clip-cult.vercel.app/" target="_blank" class="text-pink-color font-weight-600">Learn More <i class="fas fa-arrow-right margin-5px-left"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Venture 3 -->
+                <div class="col-lg-4 col-md-6 margin-30px-bottom wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="venture-card padding-30px-all bg-white border-radius-5">
+                        <div class="venture-icon margin-25px-bottom">
+                            <img src="img/coming_soon.avif" alt="Venture 3" style="max-height: 80px;">
+                        </div>
+                        <h4 class="margin-15px-bottom alt-font">Coming Soon</h4>
+                        <p class="margin-20px-bottom"></p>
+                        <a href="#" target="_blank" class="text-pink-color font-weight-600">Learn More <i class="fas fa-arrow-right margin-5px-left"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Venture 4 -->
+                <!-- <div class="col-lg-4 col-md-6 margin-30px-bottom wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="venture-card padding-30px-all bg-white border-radius-5">
+                        <div class="venture-icon margin-25px-bottom">
+                            <img src="img/ventures/4.png" alt="Venture 4" style="max-height: 80px;">
+                        </div>
+                        <h4 class="margin-15px-bottom alt-font">VTX Weddings</h4>
+                        <p class="margin-20px-bottom">Bringing our event expertise to wedding celebrations with innovative concepts and flawless execution.</p>
+                        <a href="#" class="text-pink-color font-weight-600">Learn More <i class="fas fa-arrow-right margin-5px-left"></i></a>
+                    </div>
+                </div>
+                
+                <-- Venture 5 -->
+                <!-- <div class="col-lg-4 col-md-6 margin-30px-bottom wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="venture-card padding-30px-all bg-white border-radius-5">
+                        <div class="venture-icon margin-25px-bottom">
+                            <img src="img/ventures/5.png" alt="Venture 5" style="max-height: 80px;">
+                        </div>
+                        <h4 class="margin-15px-bottom alt-font">VTX Tech</h4>
+                        <p class="margin-20px-bottom">Technology solutions for events including custom apps, registration systems, and virtual event platforms.</p>
+                        <a href="#" class="text-pink-color font-weight-600">Learn More <i class="fas fa-arrow-right margin-5px-left"></i></a>
+                    </div>
+                </div> -->
+                
+                <!-- Venture 6 -->
+                <!-- <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="venture-card padding-30px-all bg-white border-radius-5">
+                        <div class="venture-icon margin-25px-bottom">
+                            <img src="img/ventures/6.png" alt="Venture 6" style="max-height: 80px;">
+                        </div>
+                        <h4 class="margin-15px-bottom alt-font">VTX Foundation</h4>
+                        <p class="margin-20px-bottom">Our CSR initiative supporting music education and event management training for underprivileged youth.</p>
+                        <a href="#" class="text-pink-color font-weight-600">Learn More <i class="fas fa-arrow-right margin-5px-left"></i></a>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+    <!-- End Ventures Section -->
+
     <!-- Start Contact Section -->
     <section class="contact bg-light-gray no-padding" data-scroll-index="6">
         <div class="container-fluid">
@@ -470,7 +782,26 @@
                             <h5 class="font-weight-300 margin-10px-bottom text-center">For Event <span class="font-weight-500">at your</span> Location</h5>
                             <div class="margin-70px-bottom sm-margin-40px-bottom xs-margin-30px-bottom separator-line-horrizontal-medium-light2 bg-pink center-col"></div>
                         </div>
-                       
+                        <form class="contact-form wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" name="name" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" name="email" placeholder="Your Email" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" name="event-type" placeholder="Event Type">
+                                </div>
+                            </div>
+                            <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+                            <button type="submit" class="btn btn-block">Send Message</button>
+                        </form>
                     </div>
                 </div>
                 <!-- end get in touch -->
@@ -479,9 +810,28 @@
     </section>
     <!-- End Contact Section -->
 
-    <!-- Start Clients Section-->
-  
-    <!-- End Clients Section -->
+    <!-- Start Newsletter Section -->
+    <section class="newsletter padding-50px-tb bg-black">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 margin-30px-bottom md-margin-20px-bottom sm-margin-15px-bottom text-center md-text-left">
+                    <h4 class="text-white no-margin">Subscribe to Our Newsletter</h4>
+                    <p class="no-margin">Get updates on upcoming events and special offers</p>
+                </div>
+                <div class="col-lg-6">
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Enter your email" required>
+                            <div class="input-group-append">
+                                <button class="btn bg-pink-color text-white" type="submit">Subscribe</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Newsletter Section -->
 
     <!--  Start Footer Section -->
     <footer class="bg-white">
@@ -541,10 +891,84 @@
     <script src="js/mailform/jquery.form.min.js"></script>
     <script src="js/mailform/jquery.rd-mailform.min.c.js"></script>
 
-    <!-- all js include end -->
-
+    <!-- New custom scripts for enhancements -->
+    <script>
+        // Loading animation
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.querySelector('.loader').style.opacity = '0';
+                setTimeout(function() {
+                    document.querySelector('.loader').style.display = 'none';
+                }, 500);
+            }, 1000);
+        });
+        
+        // Dark mode toggle
+        document.getElementById('darkModeToggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            const icon = this.querySelector('i');
+            if (document.body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+        
+        // Counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                const increment = target / speed;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(animateCounters, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        }
+        
+        // Start counter animation when scrolled to
+        window.addEventListener('scroll', function() {
+            const counterSection = document.querySelector('.stats-section');
+            const position = counterSection.getBoundingClientRect();
+            
+            if (position.top < window.innerHeight && position.bottom >= 0) {
+                animateCounters();
+                // Remove event listener after first trigger
+                window.removeEventListener('scroll', this);
+            }
+        });
+        
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would typically send the form data to your server
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+        
+        // Newsletter subscription
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            // Here you would typically send the email to your newsletter service
+            alert('Thank you for subscribing with ' + email);
+            this.reset();
+        });
+        
+        // Skill bars animation
+        document.querySelectorAll('.skills-progress span').forEach(span => {
+            const value = span.parentElement.getAttribute('data-value');
+            span.style.width = value + '%';
+        });
+    </script>
 </body>
-
-
-<!-- Mirrored from dicor.websitelayout.net/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Feb 2025 06:55:21 GMT -->
 </html>
